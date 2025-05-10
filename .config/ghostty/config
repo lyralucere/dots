@@ -1,0 +1,14 @@
+font-family = JuliaMono
+font-size = 14
+theme = carbonfox
+
+background-opacity = 1
+window-padding-x = 20
+window-padding-y = 20
+window-height = 40
+window-width = 140
+
+confirm-close-surface = false
+keybind = ctrl+w=close_tab
+keybind = ctrl+shift+q=unbind
+

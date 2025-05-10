@@ -1,0 +1,14 @@
+[opener]
+
+edit = [
+	{ run = '$EDITOR "$@"', block = true},
+]
+
+play = [
+	{ run = 'mpv "$@"', orphan = true},
+]
+
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+

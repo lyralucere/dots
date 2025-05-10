@@ -1,0 +1,35 @@
+#Source: https://github.com/mountain-theme/Mountain
+
+palette = 0=#262626
+palette = 8=#4c4c4c
+
+palette = 1=#ac8a8c
+palette = 9=#C49ea0
+
+palette = 2=#8aac8b
+palette = 10=#9ec49f
+
+palette = 3=#ceb188
+palette = 11=#e5c890
+
+palette = 4=#8a98ac
+palette = 12=#a5b4cb
+
+palette = 5=#ac8aac
+palette = 13=#c49ec4
+
+palette = 6=#8aacab
+palette = 14=#9ec3c4
+
+palette = 7=#e7e7e7
+palette = 15=#f0f0f0
+
+background = #191919
+foreground = #cacaca
+
+cursor-color = #c49ec4
+cursor-text = #9ec3c4
+
+selection-background = #8aac8b
+selection-foreground = #e7e7e7
+

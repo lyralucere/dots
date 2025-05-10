@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+# Check if the file path is provided as an argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 /path/to/wallpaper"
+  exit 1
+fi
+
+# Convert the wallpaper path to an absolute path
+WALLPAPER_PATH=$(realpath "$1")
+
+# Define the path to the hyprpaper configuration file
+CONFIG_FILE="$HOME/.config/hypr/hyprpaper.conf"
+
+# Preload the wallpaper
+hyprctl hyprpaper preload "$WALLPAPER_PATH"
+
+# Set the wallpaper on the monitor (adjust monitor name as needed)
+hyprctl hyprpaper wallpaper "eDP-1,$WALLPAPER_PATH"
+
+# Overwrite the hyprpaper.conf file with the new wallpaper settings and splash = false
+echo "preload = $WALLPAPER_PATH" > "$CONFIG_FILE"
+echo "wallpaper = eDP-1, $WALLPAPER_PATH" >> "$CONFIG_FILE"
+echo "splash = false" >> "$CONFIG_FILE"
+
+# Notification that the wallpaper has been changed
+notify-send "Wallpaper changed to $WALLPAPER_PATH and saved to hyprpaper.conf."
+

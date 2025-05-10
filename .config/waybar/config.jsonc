@@ -1,0 +1,69 @@
+{
+    "height": 30,
+    "spacing": 2,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/mode"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "network",
+        "pulseaudio#vol",
+        "pulseaudio#mic",
+//        "backlight",
+//        "battery",
+        "tray"
+    ],
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%a, %Y/%m/%d | %H:%M:%S}",
+        "interval": 1,
+        "tooltip": false
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    "battery": {
+        "states": {
+            "warning": 25,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "interval": "30",
+        "format-icons": ["", "", "", "", "󰩖"]
+    },
+    "network": {
+        "format-wifi": "󰤨  {essid}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "󰤭  Disconnected ",
+        "on-click": "kitty -e nmtui"
+    },
+    "pulseaudio#vol": {
+        "on-click": "kitty -e pulsemixer",
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "", 
+            "default": ["", "", ""]
+        }
+    },
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "tooltip": false,
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    }
+}
+
