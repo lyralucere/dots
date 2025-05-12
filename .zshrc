@@ -3,7 +3,12 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Prompt & Colors
 autoload -U colors && colors
-PS1="%B%{$fg[white]%}[%{$fg[red]%}%n%{$fg[green]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[white]%}]%{$reset_color%}$%B "
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' %F{white}  %b%f'
+precmd() { vcs_info }
+PS1="%B%F{white}[%F{red}%n%F{green}@%F{cyan}%M %F{magenta}%~%F{white}]%f\$vcs_info_msg_0_ %B$%b "
 
 # History Settings
 HISTSIZE=100000
