@@ -16,12 +16,12 @@ choice=$(printf "Lock\nSuspend\nLogout\nReboot\nShutdown" | bemenu \
     --fb "$COLOR_BACKGROUND" --ff "$COLOR_FOREGROUND" \
     --nb "$COLOR_BACKGROUND" --nf "$COLOR_FOREGROUND" \
     --hb "$COLOR_HIGHLIGHT_BG" --hf "$COLOR_HIGHLIGHT_FG" \
-    --prompt "Uptime: $(uptime -p | sed 's/up //')" \
+    --prompt "$(uptime -p | sed 's/up //' | sed 's/minute[s]*/mins/g; s/hour[s]*/hrs/g')" \
 )
 
 case "$choice" in
     "Lock") hyprlock ;;
-    "Suspend") hyprlock & disown && systemctl suspend ;;
+    "Suspend") hyprlock & disown; sleep 0.5 && systemctl suspend ;;
     "Logout") loginctl terminate-user "$USER" ;;
     "Reboot") systemctl reboot ;;
     "Shutdown") systemctl poweroff ;;
