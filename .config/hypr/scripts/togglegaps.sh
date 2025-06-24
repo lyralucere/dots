@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Desired ON and OFF values
 GAPS_ON="5 5 5 5"
@@ -18,3 +18,4 @@ else
     hyprctl keyword general:gaps_in "$GAPS_OFF"
     hyprctl keyword general:gaps_out 0
 fi
+

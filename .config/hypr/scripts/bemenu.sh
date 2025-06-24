@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Define colour variables
 COLOR_BACKGROUND="#05080a"
@@ -23,3 +23,4 @@ j4-dmenu-desktop --dmenu="bemenu \
     --sb \"$COLOR_FOREGROUND\" --sf \"$COLOR_BACKGROUND\" \
     --ab \"$COLOR_BACKGROUND\" --af \"$COLOR_FOREGROUND\" \
     --scb \"$COLOR_BACKGROUND\" --scf \"$COLOR_FOREGROUND\""
+
