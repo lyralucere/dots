@@ -7,7 +7,7 @@ COLOR_HIGHLIGHT_BG="#faedff"
 COLOR_HIGHLIGHT_FG="#05080a"
 
 # Run j4-dmenu-desktop with bemenu
-j4-dmenu-desktop --dmenu="bemenu \
+j4-dmenu-desktop --no-generic --dmenu="bemenu \
     --ignorecase \
     --line-height 34 \
     --ch 20 \
