@@ -40,8 +40,10 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "interval": "30",
-        "format-icons": ["", "", "", "", "󰩖"]
+        "interval": 1,
+        "format-icons": ["", "", "", "", "󰩖"],
+        "tooltip": true,
+        "on-click": "~/.local/bin/powerprofile.sh"
     },
     "network": {
         "format-wifi": "󰤨 {signalStrength}%",
@@ -49,7 +51,9 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "󰤭  Disconnected ",
         "on-click": "ghostty -e nmtui",
-        "interval": 1
+        "interval": 1,
+        "tooltip": true,
+        "tooltip-format": "{essid}"
     },
     "pulseaudio#vol": {
         "on-click": "ghostty -e pulsemixer",

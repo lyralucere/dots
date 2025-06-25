@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-curl https://wttr.in
-read -p "Press enter to exit: "
-
