@@ -9,11 +9,12 @@
         "clock"
     ],
     "modules-right": [
+        "custom/weather",
         "network",
         "pulseaudio#vol",
         "pulseaudio#mic",
 //        "backlight",
-//        "battery",
+        "battery",
         "tray"
     ],
     "hyprland/mode": {
@@ -36,23 +37,24 @@
             "warning": 25,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
         "interval": "30",
         "format-icons": ["", "", "", "", "󰩖"]
     },
     "network": {
-        "format-wifi": "󰤨  {essid}",
+        "format-wifi": "󰤨 {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "󰤭  Disconnected ",
-        "on-click": "kitty -e nmtui"
+        "on-click": "ghostty -e nmtui",
+        "interval": 1
     },
     "pulseaudio#vol": {
-        "on-click": "kitty -e pulsemixer",
-        "format": "{volume}% {icon}",
-        "format-muted": "",
+        "on-click": "ghostty -e pulsemixer",
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
         "format-icons": {
             "headphone": "", 
             "default": ["", "", ""]
@@ -60,10 +62,17 @@
     },
     "pulseaudio#mic": {
         "format": "{format_source}",
-        "format-source": "{volume}% ",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "tooltip": false,
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "~/.config/waybar/wttrbar",
+        "return-type": "json"
     }
 }
 
