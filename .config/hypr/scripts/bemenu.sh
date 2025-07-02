@@ -2,8 +2,8 @@
 
 # Define colour variables
 COLOR_BACKGROUND="#101315"
-COLOR_FOREGROUND="#faedff"
-COLOR_HIGHLIGHT_BG="#faedff"
+COLOR_FOREGROUND="#efecea"
+COLOR_HIGHLIGHT_BG="#efecea"
 COLOR_HIGHLIGHT_FG="#101315"
 
 # Run j4-dmenu-desktop with bemenu
@@ -23,3 +23,4 @@ j4-dmenu-desktop --no-generic --dmenu="bemenu \
     --sb \"$COLOR_FOREGROUND\" --sf \"$COLOR_BACKGROUND\" \
     --ab \"$COLOR_BACKGROUND\" --af \"$COLOR_FOREGROUND\" \
     --scb \"$COLOR_BACKGROUND\" --scf \"$COLOR_FOREGROUND\""
+

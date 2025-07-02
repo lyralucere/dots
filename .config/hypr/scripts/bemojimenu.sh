@@ -8,8 +8,8 @@ EMOJI_FILE="$HOME/.local/share/chars"
 }
 
 COLOR_BACKGROUND="#101315"
-COLOR_FOREGROUND="#faedff"
-COLOR_HIGHLIGHT_BG="#faedff"
+COLOR_FOREGROUND="#efecea"
+COLOR_HIGHLIGHT_BG="#efecea"
 COLOR_HIGHLIGHT_FG="#101315"
 
 chosen=$(cut -d ';' -f1 "$EMOJI_FILE" | bemenu \
