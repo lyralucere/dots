@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-COLOR_BACKGROUND="#05080a"
+COLOR_BACKGROUND="#101315"
 COLOR_FOREGROUND="#faedff"
 COLOR_HIGHLIGHT_BG="#faedff"
-COLOR_HIGHLIGHT_FG="#05080a"
+COLOR_HIGHLIGHT_FG="#101315"
 
 choice=$(printf "Lock\nSuspend\nLogout\nReboot\nShutdown" | bemenu \
     --ignorecase \
@@ -11,7 +11,7 @@ choice=$(printf "Lock\nSuspend\nLogout\nReboot\nShutdown" | bemenu \
     --ch 20 \
     --cw 2 \
     --hp 10 \
-    --fn "JuliaMono 12" \
+    --fn "JuliaMono 11" \
     --tb "$COLOR_FOREGROUND" --tf "$COLOR_BACKGROUND" \
     --fb "$COLOR_BACKGROUND" --ff "$COLOR_FOREGROUND" \
     --nb "$COLOR_BACKGROUND" --nf "$COLOR_FOREGROUND" \
@@ -27,4 +27,3 @@ case "$choice" in
     "Shutdown") systemctl poweroff ;;
     *) exit 1 ;;
 esac
-

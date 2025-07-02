@@ -1,21 +1,22 @@
 {
-    "height": 30,
+    "height": 25,
     "spacing": 2,
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/mode"
+        "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock"
+        "hyprland/mode"
     ],
     "modules-right": [
         "custom/weather",
-        "network",
+//      "network#bandwidth",
+//      "backlight",
         "pulseaudio#vol",
         "pulseaudio#mic",
-//        "backlight",
+        "network",
         "battery",
-        "tray"
+        "clock",
+        "tray",
     ],
     "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -24,7 +25,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%a, %Y/%m/%d | %H:%M:%S}",
+        "format": "{:%a, %b %d %H:%M}",
         "interval": 1,
         "tooltip": false
     },
@@ -45,6 +46,12 @@
         "tooltip": true,
         "on-click": "~/.local/bin/powerprofile.sh"
     },
+
+    "network#bandwidth": {
+        "format": " {bandwidthUpBytes}   {bandwidthDownBytes}",
+        "tooltip": false
+    },
+    
     "network": {
         "format-wifi": "󰤨 {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr} ",

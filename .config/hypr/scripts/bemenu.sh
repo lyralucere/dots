@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Define colour variables
-COLOR_BACKGROUND="#05080a"
+COLOR_BACKGROUND="#101315"
 COLOR_FOREGROUND="#faedff"
 COLOR_HIGHLIGHT_BG="#faedff"
-COLOR_HIGHLIGHT_FG="#05080a"
+COLOR_HIGHLIGHT_FG="#101315"
 
 # Run j4-dmenu-desktop with bemenu
 j4-dmenu-desktop --no-generic --dmenu="bemenu \
@@ -13,7 +13,7 @@ j4-dmenu-desktop --no-generic --dmenu="bemenu \
     --ch 20 \
     --cw 2 \
     --hp 10 \
-    --fn 'JuliaMono 12' \
+    --fn 'JuliaMono 11' \
     --tb \"$COLOR_FOREGROUND\" --tf \"$COLOR_BACKGROUND\" \
     --fb \"$COLOR_BACKGROUND\" --ff \"$COLOR_FOREGROUND\" \
     --cb \"$COLOR_BACKGROUND\" --cf \"$COLOR_FOREGROUND\" \
@@ -23,4 +23,3 @@ j4-dmenu-desktop --no-generic --dmenu="bemenu \
     --sb \"$COLOR_FOREGROUND\" --sf \"$COLOR_BACKGROUND\" \
     --ab \"$COLOR_BACKGROUND\" --af \"$COLOR_FOREGROUND\" \
     --scb \"$COLOR_BACKGROUND\" --scf \"$COLOR_FOREGROUND\""
-

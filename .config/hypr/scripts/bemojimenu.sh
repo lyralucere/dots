@@ -7,10 +7,10 @@ EMOJI_FILE="$HOME/.local/share/chars"
     exit 1
 }
 
-COLOR_BACKGROUND="#05080a"
+COLOR_BACKGROUND="#101315"
 COLOR_FOREGROUND="#faedff"
 COLOR_HIGHLIGHT_BG="#faedff"
-COLOR_HIGHLIGHT_FG="#05080a"
+COLOR_HIGHLIGHT_FG="#101315"
 
 chosen=$(cut -d ';' -f1 "$EMOJI_FILE" | bemenu \
     --ignorecase \
@@ -19,7 +19,7 @@ chosen=$(cut -d ';' -f1 "$EMOJI_FILE" | bemenu \
     --ch 20 \
     --cw 2 \
     --hp 10 \
-    --fn "JuliaMono 12" \
+    --fn "JuliaMono 11" \
     --tb "$COLOR_FOREGROUND" --tf "$COLOR_BACKGROUND" \
     --fb "$COLOR_BACKGROUND" --ff "$COLOR_FOREGROUND" \
     --nb "$COLOR_BACKGROUND" --nf "$COLOR_FOREGROUND" \
