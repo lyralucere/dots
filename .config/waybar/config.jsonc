@@ -57,13 +57,13 @@
         "format-ethernet": "{ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "󰤭  Disconnected ",
-        "on-click": "ghostty -e nmtui",
+        "on-click": "hyprctl dispatch exec '[float]' 'ghostty -e nmtui connect'",
         "interval": 1,
         "tooltip": true,
         "tooltip-format": "{essid}"
     },
     "pulseaudio#vol": {
-        "on-click": "ghostty -e pulsemixer",
+        "on-click": "hyprctl dispatch exec '[float]' 'ghostty -e pulsemixer'",
         "format": "{icon} {volume}%",
         "format-muted": " ",
         "format-icons": {
