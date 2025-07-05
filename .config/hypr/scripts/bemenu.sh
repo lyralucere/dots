@@ -13,7 +13,7 @@ j4-dmenu-desktop --no-generic --dmenu="bemenu \
     --ch 20 \
     --cw 2 \
     --hp 10 \
-    --fn 'JuliaMono 11' \
+    --fn 'JuliaMono 10' \
     --tb \"$COLOR_FOREGROUND\" --tf \"$COLOR_BACKGROUND\" \
     --fb \"$COLOR_BACKGROUND\" --ff \"$COLOR_FOREGROUND\" \
     --cb \"$COLOR_BACKGROUND\" --cf \"$COLOR_FOREGROUND\" \

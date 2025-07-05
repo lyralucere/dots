@@ -13,8 +13,8 @@
 //      "backlight",
         "pulseaudio#vol",
         "pulseaudio#mic",
-        "network",
         "battery",
+        "network",
         "clock",
         "tray",
     ],
@@ -25,7 +25,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%a, %b %d %H:%M}",
+        "format": "{:%a %b %d %H:%M}",
         "interval": 1,
         "tooltip": false
     },

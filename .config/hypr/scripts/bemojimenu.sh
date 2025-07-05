@@ -19,7 +19,7 @@ chosen=$(cut -d ';' -f1 "$EMOJI_FILE" | bemenu \
     --ch 20 \
     --cw 2 \
     --hp 10 \
-    --fn "JuliaMono 11" \
+    --fn "JuliaMono 10" \
     --tb "$COLOR_FOREGROUND" --tf "$COLOR_BACKGROUND" \
     --fb "$COLOR_BACKGROUND" --ff "$COLOR_FOREGROUND" \
     --nb "$COLOR_BACKGROUND" --nf "$COLOR_FOREGROUND" \
