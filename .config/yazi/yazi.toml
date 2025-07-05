@@ -1,14 +1,19 @@
 [opener]
 
 edit = [
-	{ run = '$EDITOR "$@"', block = true},
+	{ run = 'hx "$@"', block = true},
 ]
 
 play = [
-	{ run = 'mpv "$@"', orphan = true},
+  { run = '[[ "$@" =~ \.(mp4|mkv|avi|mov|webm|flv|vob|ogv|mpeg|mpg|ts|3gp|wmv|asf|rm|rmvb|mp3|flac|ogg|opus|aac|wav|m4a|alac|aiff|wma|dsd|cue|mka|)$ ]] && mpv --force-window "$@" || true', orphan = true, desc = "Play with mpv" },
 ]
 
 open = [
-	{ run = 'xdg-open "$@"', desc = "Open" },
+  { run = 'xdg-open "$@"', desc = "Open with default option" },
+  { run = 'librewolf "$@"', desc = "Open with librewolf" },
+  { run = '[[ "$@" =~ \.(jpg|jpeg|png|gif|tiff|svg)$ ]] && gthumb "$@" || true', desc = "Open with Gthumb" },
+  { run = '[[ "$@" =~ \.(jpg|jpeg|png|gif|tiff|svg)$ ]] && gimp "$@" || true', desc = "Open with GIMP" },
+  { run = '[[ "$@" =~ \.(pdf|djvu|tiff|cbr|cbz|cb7)$ ]] && papers "$@" || true', desc = "Open with Papers" },
+  { run = '[[ "$@" =~ \.(epub|pdf|mobi|fb2|cbz|cbr)$ ]] && foliate "$@" || true', desc = "Open with Foliate" },
 ]
 
