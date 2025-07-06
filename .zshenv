@@ -1,3 +1,10 @@
+# Bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# Defaults
+export EDITOR="hx"
+export VISUAL="hx"
+
 # XDG Base Directory Spec
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"

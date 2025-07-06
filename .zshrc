@@ -1,6 +1,3 @@
-# PATH Configuration
-export PATH="$HOME/.local/bin:$PATH"
-
 # Prompt & Colors
 autoload -U colors && colors
 autoload -Uz vcs_info
@@ -25,14 +22,10 @@ zmodload zsh/complist
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)      # Include hidden files
 
-# Editor Settings
-export EDITOR="hx"
-export VISUAL="hx"
-
 # General Alias'
 alias vim="hx" # Typing 'vim' is muscle memory, so...
 alias eh="mkdir -p ~/.cache/zsh && cd ~/.cache/zsh && hx history"
-alias sl="streamlink --player mpv"
+alias ff="fastfetch"
 
 # Safety-First Alias'
 alias rm="rm -i"
