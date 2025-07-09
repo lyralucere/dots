@@ -8,7 +8,7 @@
         "hyprland/mode"
     ],
     "modules-right": [
-        "custom/weather",
+//      "custom/weather",
 //      "network#bandwidth",
 //      "backlight",
         "pulseaudio#vol",
@@ -65,10 +65,10 @@
     "pulseaudio#vol": {
         "on-click": "hyprctl dispatch exec '[float]' 'ghostty -e pulsemixer'",
         "format": "{icon} {volume}%",
-        "format-muted": " ",
+        "format-muted": "",
         "format-icons": {
             "headphone": "", 
-            "default": ["", "", ""]
+            "default": [" ", " ", " "]
         }
     },
     "pulseaudio#mic": {
