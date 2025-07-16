@@ -8,7 +8,7 @@
 * [dunst]
 * [grim] + [slurp]
 
-## Layout Demonstration + Waybar
+## Look and Feel
 ![hyprland layout](./assets/layout.png)
 
 [hyprpaper]: https://github.com/hyprwm/hyprpaper
