@@ -11,9 +11,7 @@ PS1="%B%F{white}[%F{red}%n%F{green}@%F{cyan}%M %F{magenta}%~%F{white}]%f\$vcs_in
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.cache/zsh/history
-setopt hist_ignore_all_dups    # Ignore duplicate commands
 setopt share_history           # Share history between terminals
-setopt extended_history        # Save timestamps
 
 # Completion
 autoload -Uz compinit
@@ -22,12 +20,32 @@ zmodload zsh/complist
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)      # Include hidden files
 
+# Fzf
+source <(fzf --zsh)
+hf() {
+    fzf --style full \
+        --preview 'bat --color=always {}' \
+        --bind 'result:transform-list-label:
+            if [[ -z $FZF_QUERY ]]; then
+                echo " $FZF_MATCH_COUNT items "
+            else
+                echo " $FZF_MATCH_COUNT matches for [$FZF_QUERY] "
+            fi
+            ' \
+        --bind 'focus:transform-preview-label:[[ -n {} ]] && printf " Previewing [%s] " {}' \
+        --bind 'focus:+transform-header:file --brief {} || echo "No file selected"' \
+        --color 'input-border:4,input-label:12' \
+        --color 'list-border:2,list-label:10' \
+        --color 'preview-border:6,preview-label:14' \
+        --color 'header-border:5,header-label:13' \
+        -m | xargs -r hx
+}
+
 # Alias'
-alias vim="hx" # Typing 'vim' is muscle memory, so...
-alias ff="fastfetch"
+alias vim="hx" # Typing 'vim' is muscle memory...
+alias eh="mkdir -p ~/.cache/zsh && cd ~/.cache/zsh && hx history"
 
 # Some precaution
-alias rm="rm -i" # Though this one one here can be a bit annoying at times
 rm-rf() {
     echo -n "rm -rf $@? Confirm (y/N): "
     read -r response
