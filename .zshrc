@@ -22,7 +22,7 @@ _comp_options+=(globdots)      # Include hidden files
 
 # Fzf
 source <(fzf --zsh)
-hf() {
+fh() {
     fzf --style full \
         --preview 'bat --color=always {}' \
         --bind 'result:transform-list-label:
