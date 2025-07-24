@@ -1,20 +1,113 @@
-[opener]
+[mgr]
+ratio = [1, 4, 3]
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+show_hidden = false
+show_symlink = true
 
+[preview]
+tab_size = 2
+max_width = 600
+max_height = 900
+cache_dir = "~/.cache/yazi"
+
+[opener]
 edit = [
-	{ run = 'hx "$@"', block = true},
+    { run = 'hx "$@"', block = true, desc = "Edit with helix" },
 ]
 
 play = [
-  { run = '[[ "$@" =~ \.(mp4|mkv|avi|mov|webm|flv|vob|ogv|mpeg|mpg|ts|3gp|wmv|asf|rm|rmvb|mp3|flac|ogg|opus|aac|wav|m4a|alac|aiff|wma|dsd|cue|mka|)$ ]] && mpv --force-window "$@" || true', orphan = true, desc = "Play with mpv" },
+    { run = 'mpv --force-window "$@"', orphan = true, desc = "Play with mpv" },
 ]
 
 open = [
-  { run = 'xdg-open "$@"', desc = "Open with default option" },
-  { run = 'librewolf "$@"', desc = "Open with librewolf" },
-  { run = '[[ "$@" =~ \.(jpg|jpeg|png|gif|tiff|svg)$ ]] && gthumb "$@" || true', desc = "Open with Gthumb" },
-  { run = '[[ "$@" =~ \.(jpg|jpeg|png|gif|tiff|svg)$ ]] && gimp "$@" || true', desc = "Open with GIMP" },
-  { run = '[[ "$@" =~ \.(pdf|djvu|tiff|cbr|cbz|cb7)$ ]] && papers "$@" || true', desc = "Open with Papers" },
-  { run = '[[ "$@" =~ \.(epub|pdf|mobi|fb2|cbz|cbr)$ ]] && foliate "$@" || true', desc = "Open with Foliate" },
+    { run = 'xdg-open "$@"', desc = "Open with default app" },
+    { run = 'librewolf "$@"', desc = "Open with libreWolf" },
 ]
 
-# This is a dumb solution, but it sort of works? (should use mimeapps.list instead for this kind of thing)
+image = [
+    { run = 'imv "$@"', desc = "Open with imv" },
+    { run = 'gthumb "$@"', desc = "Open with gthumb" },
+    { run = 'gimp "$@"', desc = "Open with gimp" },
+
+]
+
+document = [
+    { run = 'papers "$@"', desc = "Open with papers" },
+    { run = 'foliate "$@"', desc = "Open with foliate" },
+]
+
+extract = [
+    { run = '7z x "$1" -o"${1%.*}"', desc = "Extract with 7z" },
+    { run = 'tar -xvf "$1" -C "${1%.*}"', desc = "Extract tar" },
+    { run = 'unar "$1" -o "${1%.*}"', desc = "Extract with unar" },
+    { run = 'unzip "$1" -d "${1%.*}"', desc = "Extract with unzip" },
+]
+
+[open]
+rules = [
+    # Directories
+    { name = "*/", use = ["edit", "open"] },
+    
+    # Text files
+    { mime = "text/*", use = ["edit", "open"] },
+    { name = "*.md", use = ["edit", "open"] },
+    { name = "*.txt", use = ["edit", "open"] },
+    { name = "*.json", use = ["edit", "open"] },
+    { name = "*.toml", use = ["edit", "open"] },
+    { name = "*.yaml", use = ["edit", "open"] },
+    { name = "*.yml", use = ["edit", "open"] },
+    
+    # Images
+    { mime = "image/*", use = ["image", "open"] },
+    { name = "*.jpg", use = ["image", "open"] },
+    { name = "*.jpeg", use = ["image", "open"] },
+    { name = "*.png", use = ["image", "open"] },
+    { name = "*.gif", use = ["image", "open"] },
+    { name = "*.svg", use = ["image", "open"] },
+    { name = "*.tiff", use = ["image", "open"] },
+    
+    # Videos/Audio
+    { mime = "video/*", use = ["play", "open"] },
+    { mime = "audio/*", use = ["play", "open"] },
+    { name = "*.mp4", use = ["play", "open"] },
+    { name = "*.mkv", use = ["play", "open"] },
+    { name = "*.avi", use = ["play", "open"] },
+    { name = "*.mov", use = ["play", "open"] },
+    { name = "*.webm", use = ["play", "open"] },
+    { name = "*.mp3", use = ["play", "open"] },
+    { name = "*.flac", use = ["play", "open"] },
+    { name = "*.opus", use = ["play", "open"] },
+    { name = "*.ogg", use = ["play", "open"] },
+    
+    # Documents
+    { name = "*.pdf", use = ["document", "open"] },
+    { name = "*.epub", use = ["document", "open"] },
+    { name = "*.mobi", use = ["document", "open"] },
+    { name = "*.djvu", use = ["document", "open"] },
+    { name = "*.cbr", use = ["document", "open"] },
+    { name = "*.cbz", use = ["document", "open"] },
+    
+    # Archives
+    { name = "*.zip", use = ["extract", "open"] },
+    { name = "*.tar", use = ["extract", "open"] },
+    { name = "*.tar.gz", use = ["extract", "open"] },
+    { name = "*.tar.bz2", use = ["extract", "open"] },
+    { name = "*.tar.xz", use = ["extract", "open"] },
+    { name = "*.7z", use = ["extract", "open"] },
+    { name = "*.rar", use = ["extract", "open"] },
+    { name = "*.gz", use = ["extract", "open"] },
+    { name = "*.bz2", use = ["extract", "open"] },
+    { name = "*.xz", use = ["extract", "open"] },
+    
+    # Fallback
+    { name = "*", use = ["open", "edit"] },
+]
+
+[tasks]
+micro_workers = 5
+macro_workers = 10
+bizarre_retry = 5
+
