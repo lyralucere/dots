@@ -1,0 +1,44 @@
+[global]
+    monitor = 0
+    follow = mouse
+    width = 350
+    origin = top-right
+    offset = 20x20
+    font = JuliaMono 10
+    gaps = true
+    gap_size = 5
+    indicate_hidden = yes
+    shrink = no
+    padding = 15
+    horizontal_padding = 15
+    frame_width = 1
+    corner_radius = 0
+    alignment = left
+    vertical_alignment = center
+    word_wrap = yes
+    ellipsize = middle
+    history_length = 15
+    stack_duplicates = true
+    show_indicators = yes
+    icon_position = left
+    min_icon_size = 50
+    max_icon_size = 60
+
+[urgency_low]
+    background = "#101315"
+    foreground = "#efecea"
+    frame_color = "#101315"
+    timeout = 5
+
+[urgency_normal]
+    background = "#101315"
+    foreground = "#efecea"
+    frame_color = "#101315"
+    timeout = 5
+
+[urgency_critical]
+    background = "#101315"
+    foreground = "#efecea"
+    frame_color = "#ff355e"
+    timeout = 60
+

@@ -1,0 +1,3 @@
+[binds]
+<Shift+J> = prev
+<Shift+K> = next

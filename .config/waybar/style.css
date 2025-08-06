@@ -1,0 +1,68 @@
+@define-color base #101315;
+@define-color text #efecea;
+@define-color purple #d996f3;
+@define-color teal #5f8a8b;
+@define-color mystic #d65282;
+@define-color red #fd3a4a;
+@define-color green #00ab66;
+
+* {
+    font-family: JuliaMono;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: alpha(@base, 0.9); /* adjust opacity to liking */
+    color: @text;
+}
+
+#workspaces button {
+    padding: 0 4px;
+    color: @purple;
+    margin: 4px 0 4px 6px;
+    border: 1px solid transparent;
+}
+
+#workspaces button.active {
+    color: @text;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#workspaces button {
+    border: 1px solid transparent;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: @base;
+    border: 1px solid @base;
+}
+
+#network,
+#custom-weather,
+#pulseaudio,
+#backlight,
+#battery,
+#clock,
+#tray {
+    padding: 0px 8px;
+    margin: 0 1px;
+    color: @text;    
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#battery.warning:not(.charging) {
+    color: @red;
+}
+

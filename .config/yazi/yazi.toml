@@ -1,0 +1,92 @@
+[mgr]
+ratio = [1, 4, 3]
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+show_hidden = false
+show_symlink = true
+
+[preview]
+tab_size = 2
+max_width = 600
+max_height = 900
+cache_dir = "~/.cache/yazi"
+
+[opener]
+edit = [
+    { run = 'hx "$@"', block = true, desc = "Edit with helix" },
+]
+
+play = [
+    { run = 'mpv --force-window "$@"', orphan = true, desc = "Play with mpv" },
+]
+
+open = [
+    { run = 'xdg-open "$@"', desc = "Open with default app" },
+    { run = 'librewolf "$@"', desc = "Open with libreWolf" },
+]
+
+image = [
+    { run = 'imv "$@"', desc = "Open with imv" },
+    { run = 'gimp "$@"', desc = "Open with gimp" },
+
+]
+
+document = [
+    { run = 'zathura "$@"', desc = "Open with zathura" },
+]
+
+[open]
+rules = [
+    # Directories
+    { name = "*/", use = ["edit", "open"] },
+    
+    # Text files
+    { mime = "text/*", use = ["edit", "open"] },
+    { name = "*.md", use = ["edit", "open"] },
+    { name = "*.txt", use = ["edit", "open"] },
+    { name = "*.json", use = ["edit", "open"] },
+    { name = "*.toml", use = ["edit", "open"] },
+    { name = "*.yaml", use = ["edit", "open"] },
+    { name = "*.yml", use = ["edit", "open"] },
+    
+    # Images
+    { mime = "image/*", use = ["image", "open"] },
+    { name = "*.jpg", use = ["image", "open"] },
+    { name = "*.jpeg", use = ["image", "open"] },
+    { name = "*.png", use = ["image", "open"] },
+    { name = "*.gif", use = ["image", "open"] },
+    { name = "*.svg", use = ["image", "open"] },
+    { name = "*.tiff", use = ["image", "open"] },
+    
+    # Videos/Audio
+    { mime = "video/*", use = ["play", "open"] },
+    { mime = "audio/*", use = ["play", "open"] },
+    { name = "*.mp4", use = ["play", "open"] },
+    { name = "*.mkv", use = ["play", "open"] },
+    { name = "*.avi", use = ["play", "open"] },
+    { name = "*.mov", use = ["play", "open"] },
+    { name = "*.webm", use = ["play", "open"] },
+    { name = "*.mp3", use = ["play", "open"] },
+    { name = "*.flac", use = ["play", "open"] },
+    { name = "*.opus", use = ["play", "open"] },
+    { name = "*.ogg", use = ["play", "open"] },
+    
+    # Documents
+    { name = "*.pdf", use = ["document", "open"] },
+    { name = "*.epub", use = ["document", "open"] },
+    { name = "*.mobi", use = ["document", "open"] },
+    { name = "*.djvu", use = ["document", "open"] },
+    { name = "*.cbr", use = ["document", "open"] },
+    { name = "*.cbz", use = ["document", "open"] },
+    
+    # Fallback
+    { name = "*", use = ["open", "edit"] },
+]
+
+[tasks]
+micro_workers = 5
+macro_workers = 10
+bizarre_retry = 5
+
