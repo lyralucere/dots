@@ -44,7 +44,7 @@
         "interval": 1,
         "format-icons": ["", "", "", "", "󰩖"],
         "tooltip": true,
-        "on-click": "~/.local/bin/powerprofile.sh"
+        "on-click": "~/.local/bin/powerprofile"
     },
 
     "network#bandwidth": {
