@@ -37,6 +37,13 @@ document = [
     { run = 'zathura "$@"', desc = "Open with zathura" },
 ]
 
+extract = [
+    { run = '7z x "$1" -o"${1%.*}"', desc = "Extract with 7z" },
+    { run = 'tar -xvf "$1" -C "${1%.*}"', desc = "Extract tar" },
+    { run = 'unar "$1" -o "${1%.*}"', desc = "Extract with unar" },
+    { run = 'unzip "$1" -d "${1%.*}"', desc = "Extract with unzip" },
+]
+
 [open]
 rules = [
     # Directories
@@ -80,7 +87,19 @@ rules = [
     { name = "*.djvu", use = ["document", "open"] },
     { name = "*.cbr", use = ["document", "open"] },
     { name = "*.cbz", use = ["document", "open"] },
-    
+
+    # Archives
+    { name = "*.zip", use = ["extract", "open"] },
+    { name = "*.tar", use = ["extract", "open"] },
+    { name = "*.tar.gz", use = ["extract", "open"] },
+    { name = "*.tar.bz2", use = ["extract", "open"] },
+    { name = "*.tar.xz", use = ["extract", "open"] },
+    { name = "*.7z", use = ["extract", "open"] },
+    { name = "*.rar", use = ["extract", "open"] },
+    { name = "*.gz", use = ["extract", "open"] },
+    { name = "*.bz2", use = ["extract", "open"] },
+    { name = "*.xz", use = ["extract", "open"] },
+
     # Fallback
     { name = "*", use = ["open", "edit"] },
 ]
